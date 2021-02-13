@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# copy EXIF data from an CR2 raw file to a JPG file (derived from it
+#
+FROM=$1
+
+if [ ! -f "${FROM}" ]
+then
+    echo source file not found
+    abort
+fi
+exiftool -model \
+	 -Lensmodel \
+	 -Exposuretime \
+	 -Fnumber \
+	 -ISO \
+	 -Focallength \
+	 "${FROM}"
+
+# END

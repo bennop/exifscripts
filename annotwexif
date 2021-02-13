@@ -1,0 +1,47 @@
+#!/bin/bash
+usage(){
+    echo usage: $0 imgfile [exifsrc]
+    echo
+    echo If exifsrc is omitted, the EXIF data are take from the imgfile,
+    echo otherwise from exifsrc
+    exit 1
+}
+getexif(){
+	exiftool -"$1" "$2" | awk -F: '{print substr($2,2)}'
+}
+
+if [ $# -lt 1 ] ; then
+    usage
+    exit 2
+fi
+
+EXIFSRC="${2:-$1}"
+#--------------------------------------------------
+DIR=$(dirname "$1")
+FILE=$(basename "$1")
+NEWFILE="${DIR}/new_${FILE}"
+echo ${NEWFILE}
+
+#--------------------------------------------------
+MODEL=$(getexif model "$EXIFSRC")
+LENS=$(getexif Lensmodel "$EXIFSRC" | tr '-' '–')
+TIME=$(getexif Exposuretime "$EXIFSRC")
+APER=$(getexif Fnumber "$EXIFSRC" | sed 's/\.*0*$//')
+ISO=$(getexif ISO "$EXIFSRC")
+LENGTH=$(getexif Focallength "$EXIFSRC" | sed 's/\.*0* //')
+INFO="${MODEL} with ${LENS} @ ${LENGTH} — ${TIME}s, f/${APER}, ISO ${ISO}"
+
+echo ${INFO}
+
+Convert "$1"                         \
+	-gravity SouthWest           \
+	-font Helvetica              \
+	-pointsize 18 \
+	-fill darkgrey                   \
+	-annotate +11+9 "${INFO}"   \
+	-fill white                  \
+	-annotate +10+10 "${INFO}"   \
+	"${NEWFILE}"
+
+open "${NEWFILE}"
+# END
