@@ -1,0 +1,13 @@
+#!/bin/bash
+WD="$(pwd)"
+MYBIN=~/bin
+if [ ! -d ${MYBIN} ] ; then
+    mkdir ${MYBIN}
+fi
+
+for script in annotwexif cr2jpg mainexif
+do
+    echo ${script}
+    ln -s "${WD}/${script}" ${MYBIN}
+done
+# END
