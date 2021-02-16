@@ -6,11 +6,11 @@ Scripts making use of [`exiftool`](https://exiftool.org/) to work with EXIF meta
 | name | description |
 | ---- | ----------- |
 | `mainexif`  | extract some basic acquision parameters
-| `cr2jpg`    | copy that set of EXIF data from one file to another
+| `cpexif`    | copy that set of EXIF data from one file to another
 | `annotwexif`| put an EXIF annotation on the image
 
 ## External dependencies
-By nature, these script rely on [`exiftool`](https://exiftool.org/)
+By nature, these scripts rely on [`exiftool`](https://exiftool.org/)
 being installed and functional.
 
 The **annotation tool** `annotwexif` additionally utilizes [ImageMagick](https://github.com/ImageMagick)
