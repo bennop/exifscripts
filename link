@@ -5,9 +5,20 @@ if [ ! -d ${MYBIN} ] ; then
     mkdir ${MYBIN}
 fi
 
-for script in annotwexif cr2jpg mainexif
+for script in annotwexif cpexif mainexif
 do
     echo ${script}
-    ln -s "${WD}/${script}" ${MYBIN}
+    if [ -f  ${MYBIN}/${script} ]
+    then
+	if [ ${MYBIN}/${script} -ot ${script} ]
+	then
+	    rm ${MYBIN}/${script}
+	    cp "${script}" ${MYBIN}
+	else
+	    echo -e "\tup-to date"
+	fi
+    else
+	cp "${script}" ${MYBIN}
+    fi
 done
 # END
