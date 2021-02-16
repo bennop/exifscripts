@@ -2,6 +2,21 @@
 #
 # copy EXIF data from an CR2 raw file to a JPG file (derived from it
 #
+usage(){
+    echo usage: $0 imgfile 
+    echo
+    echo Report essential EXIF data from imgfile
+    exit 1
+}
+getexif(){
+	exiftool -"$1" "$2" | awk -F: '{print substr($2,2)}'
+}
+
+if [ $# -lt 1 ] ; then
+    usage
+    exit 2
+fi
+
 FROM=$1
 
 if [ ! -f "${FROM}" ]
