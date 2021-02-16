@@ -9,6 +9,8 @@ Scripts making use of [`exiftool`](https://exiftool.org/) to work with EXIF meta
 | `cpexif`    | copy that set of EXIF data from one file to another
 | `annotwexif`| put an EXIF annotation on the image
 
+`link` is used to copy the scripts from the git directory to `~/bin`
+
 ## External dependencies
 By nature, these scripts rely on [`exiftool`](https://exiftool.org/)
 being installed and functional.
