@@ -19,7 +19,7 @@ EXIFSRC="${2:-$1}"
 #--------------------------------------------------
 DIR=$(dirname "$1")
 FILE=$(basename "$1")
-NEWFILE="${DIR}/new_${FILE}"
+NEWFILE="${DIR}/exif_${FILE}"
 echo ${NEWFILE}
 
 #--------------------------------------------------
@@ -35,7 +35,7 @@ echo ${INFO}
 
 Convert "$1"                         \
 	-gravity SouthWest           \
-	-font Helvetica              \
+	-font Raleway\ Dots  \
 	-pointsize 18 \
 	-fill darkgrey                   \
 	-annotate +11+9 "${INFO}"   \
