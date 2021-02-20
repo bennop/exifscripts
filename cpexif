@@ -5,7 +5,7 @@
 usage(){
     echo usage: $0 exifsrc imgfile
     echo 
-    echo copy EXIT data from exifsrc to imgfile
+    echo copy EXIF data from exifsrc to imgfile
     exit 1
 }
 

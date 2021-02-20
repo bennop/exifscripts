@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# EXIF workflow
+#  1. copy EXIF from source
+#  2. show EXIF
+#  3. annotate with EXIF
+
+usage(){
+    echo usage: $0 exifsrc imgfile
+    echo 
+    echo copy EXIF data from exifsrc to imgfile
+    exit 1
+}
+
+if [ $# -lt 2 ] ; then
+    usage
+    exit 2
+fi
+
+FROM=$1
+TO=$2
+
+cpexif ${FROM} ${TO}
+mainexif ${TO}
+annotwexif ${TO}
+
+# END
