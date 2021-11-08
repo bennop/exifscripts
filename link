@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# create links in $MYBIN (see below, should be on $PATH)
+# to make scripts easily accessible
+#
 WD="$(pwd)"
 MYBIN=~/bin
 if [ ! -d ${MYBIN} ] ; then
