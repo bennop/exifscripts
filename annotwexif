@@ -36,11 +36,11 @@ echo ${INFO}
 Convert "$1"                         \
 	-gravity SouthWest           \
 	-font Raleway\ Dots  \
-	-pointsize 18 \
+	-pointsize 14 \
 	-fill darkgrey                   \
-	-annotate +11+9 "${INFO}"   \
-	-fill white                  \
-	-annotate +10+10 "${INFO}"   \
+	-annotate +60+26 "${INFO}"   \
+	-fill "#807D75"                \
+	-annotate +61+25 "${INFO}"   \
 	"${NEWFILE}"
 
 open "${NEWFILE}"

@@ -5,7 +5,7 @@ if [ ! -d ${MYBIN} ] ; then
     mkdir ${MYBIN}
 fi
 
-for script in annotwexif cpexif mainexif
+for script in annotwexif cpexif mainexif exifwf
 do
     echo ${script}
     if [ -f  ${MYBIN}/${script} ]
